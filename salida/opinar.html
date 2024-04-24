@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Opinión</title>
+    <link rel="stylesheet" href="style/estilo.css"/>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Opiniones</h1>
+        <ol>
+
+                                <li>Aupa Txantrea, la mejor! <b>(Aitor)</b>
+                        <ul>
+                                <li>No tienes ni idea <b>(Alba)</b></li>
+                                <li>Ya lo veremos <b>(Aitor)</b></li>
+                        </ul>
+                    </li>
+                    <li>Falta Beste Iruña <b>(Mikel)</b>
+                        <ul>
+                                <li>Estoy de acuerdo <b>(Javi)</b></li>
+                        </ul>
+                    </li>
+                    <li>Ardoi es mejor <b>(Spyros)</b></li>
+                    <li>Ardoi txapeldun! <b>(Edu)</b></li>
+
+        </ol>
+        <form action="opinar.html" method="post">
+            <input type="hidden" name="nombre" value="Aitor" />
+            <input type="hidden" name="codigo" value="KEY123" />
+
+            <input id="respuesta" type="checkbox"
+            name="esrespuesta" value="true"
+            onclick="habilitarRespuesta();" />
+            <label for="respuesta">es respuesta a</label>
+            <select id="numero" name="numero" disabled="disabled">
+                <option value="0">ninguno</option>
+
+                    <option value="1">comentario 1</option>
+                    <option value="4">comentario 2</option>
+                    <option value="5">comentario 3</option>
+                    <option value="6">comentario 4</option>
+
+            </select>
+            <br/><br/>
+            <textarea id="opinion" name="opinion"></textarea><br/>
+            <div class="button-container opinar">
+                <input type="submit" value="Opinar"/>
+            </div>
+        </form>
+        <br/>
+        <form action="votar.html" method="post">
+            <input type="hidden" name="nombre" value="Aitor" />
+            <input type="hidden" name="codigo" value="KEY123" />
+            <div class="button-container volver">
+                <input type="submit" value="Volver"/>
+            </div>
+        </form>
+        <br/>
+        <div class="button-container salir">
+            <a href="index.html">Salir</a>
+        </div>
+
+        <script src="code/script.js"></script>
+    </div>
+</body>
+</html>

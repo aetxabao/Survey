@@ -1,0 +1,103 @@
+@startuml
+class com.masanz.da.survey.dto.Opinion {
+- int numero
+- String texto
+- String autor
+- List<Opinion> respuestas
+}
+
+
+class com.masanz.da.survey.dao.DaoSurvey {
++ boolean autenticar(String,String)
++ Voto obtenerVoto(String)
++ List<Recuento> obtenerRecuentos()
++ List<Voto> obtenerVotos()
++ boolean votar(String,String)
+- boolean actualizarVoto(String,String)
+- boolean insertarVoto(String,String)
++ List<Opinion> obtenerOpiniones()
++ List<Opinion> obtenerOpiniones2()
++ boolean opinar(String,int,String)
+}
+
+class com.masanz.da.survey.dto.Voto {
+- String usuario
+- String opcion
+- LocalDateTime timestamp
++ String getFecha()
++ String getHora()
+}
+
+
+class com.masanz.da.survey.dto.Recuento {
+- int id
+- String nombre
+- String valor
+- int cuantos
+}
+
+
+class com.masanz.da.survey.Main {
+- {static} Logger logger
++ {static} void main(String[])
+- {static} ModelAndView getpostOpinar(Tareas,Request,Response)
+}
+
+
+class com.masanz.da.survey.database.ConnectionManager {
+- {static} Connection conexion
++ {static} boolean conectar(String,String,String)
++ {static} Object[][] ejecutarSelectSQL(String,Object[])
++ {static} int ejecutarUpdateSQL(String,Object[])
+- {static} Object[][] convertirResultSets(ResultSet)
+- {static} void establecerParametros(PreparedStatement,Object[])
++ {static} boolean desconectar()
+}
+
+
+class com.masanz.da.survey.service.TareasDao {
+- DaoSurvey dao
++ <<Create>> TareasDao()
++ boolean autenticar(String,String)
++ Voto obtenerVoto(String)
++ Map<String,Integer> obtenerVotos()
++ List<Recuento> obtenerRecuentos()
++ boolean votar(String,String)
++ List<Opinion> obtenerOpiniones()
++ boolean opinar(String,int,String)
+}
+
+
+class com.masanz.da.survey.service.Tareas {
++ boolean autenticar(String,String)
++ Voto obtenerVoto(String)
++ Map<String,Integer> obtenerVotos()
++ List<Recuento> obtenerRecuentos()
++ boolean votar(String,String)
++ List<Opinion> obtenerOpiniones()
++ boolean opinar(String,int,String)
+}
+
+class com.masanz.da.survey.Demo {
+- {static} Logger logger
+- {static} Tareas tareas
+- {static} Configuration cfg
++ {static} void main(String[])
+- {static} void setCfg()
+- {static} void cocinaIndex(String,String)
+- {static} void cocinaVotar()
+- {static} void cocinaOpinar()
+- {static} void cocinaError()
+- {static} void cocina(String,Map)
+- {static} String desc(Map)
+}
+
+com.masanz.da.survey.service.Tareas <|-- com.masanz.da.survey.service.TareasDao
+com.masanz.da.survey.Demo --> com.masanz.da.survey.service.Tareas
+com.masanz.da.survey.Main ..> com.masanz.da.survey.service.Tareas
+com.masanz.da.survey.service.TareasDao --> com.masanz.da.survey.dao.DaoSurvey
+com.masanz.da.survey.dao.DaoSurvey ..> com.masanz.da.survey.database.ConnectionManager
+com.masanz.da.survey.service .left.> com.masanz.da.survey.dto
+com.masanz.da.survey.dao ..> com.masanz.da.survey.dto
+com.masanz.da.survey.dto.Opinion o-> com.masanz.da.survey.dto.Opinion
+@enduml

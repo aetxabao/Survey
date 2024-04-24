@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Votar</title>
+    <link rel="stylesheet" href="style/estilo.css"/>
+    <link rel="icon" type="image/x-icon" href="imgs/favicon.ico"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Mejor equipo</h1>
+
+        
+
+        <div class="svg-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="420" height="250">
+            <rect width="360" height="200" x="40" y="20" style="fill:white;stroke-width:1;stroke:black;"/>
+                <rect width="120" height="200" x="40" y="20" style="stroke-width:1;fill:#7eb0d5;stroke:black;"/>
+                <text x="60" y="240" fill="#7eb0d5">hiruherri</text>
+                <text x="15" y="25" fill="#7eb0d5">30</text>
+                <rect width="120" height="133.333" x="160" y="86.667" style="stroke-width:1;fill:#b2e061;stroke:black;"/>
+                <text x="180" y="240" fill="#b2e061">sanjuan</text>
+                <text x="15" y="91.667" fill="#b2e061">20</text>
+                <rect width="120" height="66.667" x="280" y="153.333" style="stroke-width:1;fill:#bd7ebe;stroke:black;"/>
+                <text x="300" y="240" fill="#bd7ebe">txantrea</text>
+                <text x="15" y="158.333" fill="#bd7ebe">10</text>
+        </svg>
+        </div>
+
+            <p><b>Aitor</b> el 2024-04-12 habías votado <i>txantrea</i> a las 01:56:10</p>
+            <h2>Si quieres puedes cambiar tu voto</h2>
+
+        <form action="votar.html" method="post">
+
+            <input type="hidden" name="nombre" value="Aitor" />
+            <input type="hidden" name="codigo" value="KEY123" />
+
+            <div class="radios-container">
+                    <input id="txantrea" type="radio" name="voto" value="txantrea" checked="checked"/>
+                <label for="txantrea">Txantrea (10)</label>
+                    <input id="sanjuan" type="radio" name="voto" value="sanjuan"/>
+                <label for="sanjuan">San Juan (20)</label>
+                    <input id="hiruherri" type="radio" name="voto" value="hiruherri"/>
+                <label for="hiruherri">Hiru Herri (30)</label>
+            </div>
+
+            <br/><br/>
+            <div class="button-container votar">
+                <input type="submit" value="Votar"/>
+            </div>
+        </form>
+        <br/>
+        <form action="opinar.html" method="post">
+            <input type="hidden" name="nombre" value="Aitor" />
+            <input type="hidden" name="codigo" value="KEY123" />
+            <div class="button-container opinar">
+                <input type="submit" value="Opinar"/>
+            </div>
+        </form>
+        <div class="button-container salir">
+            <a href="index.html">Salir</a>
+        </div>
+    </div>
+</body>
+</html>
